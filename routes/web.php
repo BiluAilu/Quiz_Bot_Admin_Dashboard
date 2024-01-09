@@ -21,6 +21,11 @@ Route::get('/', function(){
 });
 
 
+Auth::routes();
+
 Route::resource('question', QuestionController::class);
 Route::post('/question/approve', [QuestionController::class,'approve'])->name('question.approve');
 Route::post('/question/reject', [QuestionController::class,'reject'])->name('question.reject');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

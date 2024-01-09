@@ -28,14 +28,21 @@
             <li class="dropdown">
                 <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-bs-toggle="dropdown" href="index.html#" role="button"
                     aria-haspopup="false" aria-expanded="false">
-                    <span class="ms-1 nav-user-name hidden-sm">User</span>
+                    <span class="ms-1 nav-user-name hidden-sm">
+
+
+                        {{ Auth::user()->name }}</span>
                     <img src="{{asset('assets/images/robo-advisor.png')}}" alt="profile-user" class="rounded-circle thumb-xs" />
                 </a>
                 <div class="dropdown-menu dropdown-menu-end">
                     <a class="dropdown-item" href="index.html#"><i data-feather="user" class="align-self-center icon-xs icon-dual me-1"></i> Profile</a>
                     <a class="dropdown-item" href="index.html#"><i data-feather="settings" class="align-self-center icon-xs icon-dual me-1"></i> Settings</a>
                     <div class="dropdown-divider mb-0"></div>
-                    <a class="dropdown-item" href="index.html#"><i data-feather="power" class="align-self-center icon-xs icon-dual me-1"></i> Logout</a>
+
+                    <form action="{{route('logout')}}" method="POST">
+@csrf
+                        <button  type="submit" class="dropdown-item" href="#"><i data-feather="power" class="align-self-center icon-xs icon-dual me-1"></i> Logout</button>
+                    </form>
                 </div>
             </li>
         </ul><!--end topbar-nav-->
