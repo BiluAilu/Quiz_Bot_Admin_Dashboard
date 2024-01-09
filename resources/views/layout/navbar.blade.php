@@ -4,7 +4,7 @@
  <!-- Top Bar Start -->
  <div class="topbar">
     <!-- Navbar -->
-    <nav class="navbar-custom">
+    <nav class="navbar-custom" style="background-color:#ebf2ff;">
         <ul class="list-unstyled topbar-nav float-end mb-0">
             <li class="dropdown hide-phone">
                 <a class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-bs-toggle="dropdown" href="index.html#" role="button"

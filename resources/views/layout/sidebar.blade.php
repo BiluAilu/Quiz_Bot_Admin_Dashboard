@@ -1,4 +1,4 @@
- <style>
+ {{-- <style>
 .brand .logo {
     display: flex;
     align-items: center;
@@ -18,21 +18,17 @@
     justify-content: center;
 }
 
- </style>
+ </style> --}}
 
  <!-- Left Sidenav -->
   <div class="left-sidenav">
 <!-- LOGO -->
-<div class="brand">
+<div class="brand" style="background-color: #364afa;">
     <a href="index.html" class="logo">
         <span class="a">
-            <img src="{{asset('assets/images/robo-advisor.png')}}" alt="logo-small" class="logo-sm">
+            <img src="{{asset('assets/images/robo-advisor.png')}}" alt="logo-small" width="35px">
         </span>
-        <span class="logo-text">
-            {{-- <img src="{{asset('assets/images/logo.png')}}" alt="logo-large" class="logo-lg logo-light"> --}}
-            Quiz Bot
-            {{-- <img src="{{asset('assets/images/logo-dark.png')}}" alt="logo-large" class="logo-lg logo-dark"> --}}
-        </span>
+
     </a>
 </div>
 <!--end logo-->
@@ -53,7 +49,22 @@
                 <ul class="nav-second-level" aria-expanded="false">
 
 
-                    <li class="nav-item"><a class="nav-link" href="{{route('question.index')}}"><i class="ti-control-record"></i>Questions To be Approved</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="ti-control-record"></i>Questions</a>
+
+
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li class="nav-item"><a class="nav-link" href="{{route('question.all')}}"><i class="ti-control-record"></i>All</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{route('question.index')}}"><i class="ti-control-record"></i>To be Approved</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="ti-control-record"></i>User Managment</a>
+
+
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li class="nav-item"><a class="nav-link" href="{{route('users.index')}}"><i class="ti-control-record"></i>Users</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{route('users.blocked')}}"><i class="ti-control-record"></i>Blocked Users</a></li>
+                        </ul>
+                    </li>
 
 
                 </ul>

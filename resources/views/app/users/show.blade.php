@@ -8,47 +8,37 @@
                 <a href="{{ route('users.index') }}" class="mr-4"
                     ><i class="icon ion-md-arrow-back"></i
                 ></a>
-                @lang('crud.users.show_title')
+                User Detail
             </h4>
 
             <div class="mt-4">
                 <div class="mb-4">
-                    <h5>@lang('crud.users.inputs.name')</h5>
+                    <h5>Name</h5>
                     <span>{{ $user->name ?? '-' }}</span>
                 </div>
                 <div class="mb-4">
-                    <h5>@lang('crud.users.inputs.email')</h5>
+                    <h5>Email</h5>
                     <span>{{ $user->email ?? '-' }}</span>
                 </div>
                 <div class="mb-4">
                     <h5>Username</h5>
                     <span>{{ $user->username ?? '-' }}</span>
                 </div>
-            </div>
-
-            <div class="mt-4">
                 <div class="mb-4">
-                    <h5>@lang('crud.roles.name')</h5>
-                    <div>
-                        @forelse ($user->roles as $role)
-                        <div class="badge badge-primary">{{ $role->name }}</div>
-                        <br />
-                        @empty - @endforelse
-                    </div>
+                    <h5>Phone Number</h5>
+                    <span>{{ $user->phone_number ?? '-' }}</span>
                 </div>
             </div>
+
+
 
             <div class="mt-4">
                 <a href="{{ route('users.index') }}" class="btn btn-light">
                     <i class="icon ion-md-return-left"></i>
-                    @lang('crud.common.back')
+                    back
                 </a>
 
-                @can('create', App\Models\User::class)
-                <a href="{{ route('users.create') }}" class="btn btn-light">
-                    <i class="icon ion-md-add"></i> @lang('crud.common.create')
-                </a>
-                @endcan
+
             </div>
         </div>
     </div>

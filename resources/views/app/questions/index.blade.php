@@ -31,7 +31,7 @@
     <div class="card">
         <div class="card-body">
             <div style="display: flex; justify-content: space-between;">
-                <h4 class="card-title">Questions To be Approved</h4>
+                <h4 class="card-title my-3">Questions To be Approved</h4>
             </div>
 
             <div class="table-responsive">
@@ -39,13 +39,16 @@
                     <thead>
                         <tr>
                             <th class="text-left">
+                                Question Title
+                            </th>
+                            <th class="text-left">
                                 Question Catagory
                             </th>
                             <th class="text-left">
                                 Question Level
                             </th>
                             <th class="text-left">
-                                Question Title
+                                User ID
                             </th>
                             <th class="text-left">
                                 Action
@@ -60,8 +63,9 @@
                             <td>{{ $question->title ?? '-' }}</td>
                             <td>{{ $question->category ?? '-' }}</td>
                             <td>{{ $question->level ?? '-' }}</td>
+                            <td>{{ $question->user_id ?? '-' }}</td>
 
-                            <td class="text-center">
+                            <td class="">
                                 <div role="group" aria-label="Row Actions" class="btn-group">
 
                                     <a href="{{route('question.show',$question)}}" class="btn btn-sm btn-outline-info mx-1">
@@ -105,9 +109,9 @@
                         @endforelse
                     </tbody>
                     <tfoot>
-                        {{-- <tr>
+                        <tr>
                             <td colspan="4">{!! $questions->render() !!}</td>
-                        </tr> --}}
+                        </tr>
                     </tfoot>
                 </table>
             </div>

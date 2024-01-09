@@ -19,7 +19,7 @@ class User extends Authenticatable
 
 
          protected $collection = 'user';
-         protected $primaryKey = '_id';
+        //  protected $primaryKey = '_id';
 
 
 

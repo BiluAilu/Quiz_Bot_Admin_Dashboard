@@ -16,22 +16,23 @@ class QuestionController extends Controller
     public function index()
     {
 
-        // $user=User::all();
-
-        // $user=User::create(['name'=>"Telegram Laravel","photo_id"=>"333","phone_number"=>"092356335",'_id'=>99999]);
-        // dd($user);
         $user=User::where('_id',99999)->first();
-        // dd($user->questions);
 
-        // $questions=Question::all();
-        $questions=Question::where('status','=','requested')->get();
-        // dd($questions[0]->_id);
-        // foreach ($questions as $question){
+        $questions=Question::where('status','=','requested')->paginate(10);
 
-
-        //     dd($question);
-        // }
         return view('app.questions.index',compact('questions'));
+    }
+
+
+    public function all(Request $request){
+        $searchApproved = $request->get('searchApproved', '');
+        $searchRejected = $request->get('searchRejected', '');
+
+    $approved_questions=Question::where('status','=','approved')?->paginate(10);
+    $rejected_questions=Question::where('status','=','rejected')?->paginate(10);
+
+
+    return view('app.questions.list',compact('approved_questions','rejected_questions'));
     }
 
     /**
@@ -59,7 +60,7 @@ class QuestionController extends Controller
                 return redirect()
                 ->route('question.index')
                 ->with('error','No such question');
-                
+
             }
             //
         }

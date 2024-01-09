@@ -37,7 +37,7 @@
     <div class="card">
         <div class="card-body">
             <div style="display: flex; justify-content: space-between;">
-                <h4 class="card-title my-3">User List</h4>
+                <h4 class="card-title my-3">Blocked User List</h4>
             </div>
 
             <div class="table-responsive">
@@ -48,12 +48,11 @@
                                 Name
                             </th>
                             <th class="text-left">
-                                User ID
-                            </th>
-                            <th class="text-left">
                                 Email
                             </th>
-
+                            <th class="text-left">
+                                Username
+                            </th>
                             <th class="text-center">
                                 Actions
                             </th>
@@ -63,9 +62,8 @@
                         @forelse($users as $user)
                         <tr>
                             <td>{{ $user->name ?? '-' }}</td>
-                            <td>{{ $user->_id ?? '-' }}</td>
-                            <td>{{ $user->email ?? 'Not Registered' }}</td>
-
+                            <td>{{ $user->email ?? '-' }}</td>
+                            <td>{{ $user->username ?? '-' }}</td>
                             <td class="text-center" style="width: 134px;">
                                 <div
                                     role="group"
@@ -73,8 +71,8 @@
                                     class="btn-group"
                                 >
 
+
                                     <a href="{{ route('users.show', ['id',$user->_id]) }}">
-                                        
                                         <button
                                             type="button"
                                             class="btn btn-sm btn-outline-primary mx-1"
@@ -84,20 +82,21 @@
                                     </a>
 
                                     <form
-                                        action="{{ route('users.block') }}"
+                                        action="{{ route('users.unblock') }}"
                                         method="POST"
                                         onsubmit="return confirm('are you sure')"
-                                        >
+                                    >
                                         @csrf
                                         <input type="hidden" name="id" value="{{$user->_id}}">
                                         <button
                                             type="submit"
                                             class="btn btn-sm btn-outline-danger mx-1r"
                                         >
-                                            Block
+
+                                            Unblock
                                         </button>
                                     </form>
-
+                                    {{-- @endcan --}}
                                 </div>
                             </td>
                         </tr>
