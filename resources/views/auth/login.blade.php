@@ -49,7 +49,7 @@
                                         <form class="form-horizontal auth-form" action="{{route('login')}}" method="POST">
                                             @csrf
                                             <div class="form-group mb-2">
-                                                <label class="form-label" for="username">Username</label>
+                                                <label class="form-label" for="email">Email</label>
                                                 <div class="input-group">
                                                     <input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
                                                 </div>

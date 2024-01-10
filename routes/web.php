@@ -17,12 +17,14 @@ use App\Http\Controllers\UserController;
 */
 
 // Route::get('/', [TodoController::class, 'index'])->name('dashboard');
+
 Route::get('/', function(){
     return view('welcome');
 });
-
-
 Auth::routes();
+Route::middleware(['auth'])->group(function () {
+
+
 
 // Route::resource('user', UserController::class);
 Route::get('users/',[UserController::class,'index'])->name('users.index');
@@ -37,3 +39,4 @@ Route::post('/question/reject', [QuestionController::class,'reject'])->name('que
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+});
